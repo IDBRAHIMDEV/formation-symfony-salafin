@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+ {% include('SiteBundle:partials:navbar.html.twig') %}
+
+
+  <div class="jumbotron text-center">
+      <h1 class="display-5">Contacts: OURUS SERVICES</h1>
+      <p class="lead">Filiale Informatique BMCE BANK</p>
+      <hr class="my-2">
+  </div>
+
+
+  <div class="container">
+  
+    <div class="row">
+        <div class="col-md-4">
+            <h4 class="mt-5">Phone: {{ phone }}</h1>
+        </div>
+         <div class="col-md-4">
+            <h4 class="mt-5">Email: {{ email }}</h1>
+        </div>
+         <div class="col-md-4">
+            <h4 class="mt-5">Fax: {{ fax }}</h1>
+        </div>
+    </div>       
+
+     <div class="row">
+      <div class="col-md-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.407581306784!2d-7.644520984848649!3d33.54278515185222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62d3c9419efdd%3A0xb44d678a42629c6d!2sSalafin+Si%C3%A8ge!5e0!3m2!1sfr!2sma!4v1544454613024" width="400" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-6">
+         <h2>Contact Us</h2>
+           
+           <div class="form-group">
+              <label for="nom">Votre nom</label>
+              <input id="nom" name="nom" type="text" class="form-control">
+           </div>
+
+
+            <div class="form-group">
+              <label for="email">email</label>
+              <input id="email" name="email" type="text" class="form-control">
+           </div>
+
+            <div class="form-group">
+              <label for="objet">objet</label>
+              <input id="objet" name="objet" type="text" class="form-control">
+           </div>
+
+            <div class="form-group">
+              <label for="message">message</label>
+              <textarea name="message" class="form-control" id="message" cols="30" rows="4"></textarea>
+           </div>
+
+           <button class="btn btn-danger btn-block"> <i class="fa fa-paper-plane"></i> Envoyer</button>
+      </div>
+     </div>       
+
+  
+  </div>
+
+{% endblock %}
+
+
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+
+{% endblock %}
+
+
+
+
+{% block footer %} {{ parent() }} Yassine SABAR {% endblock %}

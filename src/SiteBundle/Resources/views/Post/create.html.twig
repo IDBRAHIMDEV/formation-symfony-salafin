@@ -1,0 +1,70 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SiteBundle:Post:create{% endblock %}
+
+{% block body %}
+
+
+   <div class="row">
+     <div class="col-md-6 mx-auto">
+       {% for message in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div> 
+       {% endfor %}
+     </div>
+   </div>
+
+  <div class="row mt-5">
+    <div class="col-md-6 mx-auto">
+       <h1>Create new post</h1>
+        
+        {{ form_start(f) }}
+        
+         <div class="form-group">
+            {{ form_row(f.author, {'attr': {'class': 'form-control'}}) }}
+         </div>
+
+          <div class="form-group">
+              {{ form_label(f.title) }}
+              {{ form_widget(f.title, {'attr': {'class': 'form-control', 'placeholder': 'Your title'}}) }}
+              {{ form_errors(f.title) }}
+
+          </div>
+
+            <div class="form-group">
+              {{ form_row(f.slug, {'attr': {'class': 'form-control', 'placeholder': 'Your slug'}}) }}
+          </div>
+
+          <div class="form-group">
+              {{ form_row(f.content, {'attr': {'class': 'form-control', 'placeholder': 'Your content'}}) }}
+          </div>
+
+          <hr>
+
+           <div class="form-group">
+              {{ form_row(f.image.url, {'attr': {'class': 'form-control', 'placeholder': 'Your Url'}}) }}
+          </div>
+
+           <div class="form-group">
+              {{ form_row(f.image.alt, {'attr': {'class': 'form-control', 'placeholder': 'Your Alternative'}}) }}
+          </div>
+
+          <hr>
+
+           <div class="form-group">
+            {{ form_row(f.categories, {'attr': {'class': 'form-control'}}) }}
+         </div>
+
+         <div class="form-group form-check">
+            {{ form_widget(f.active, {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(f.active, null, {'label_attr': {'class': 'form-check-label'}}) }}
+           
+        </div>
+
+        {{ form_widget(f.save, {'attr': { 'class': 'btn btn-danger btn-block' }}) }}
+
+     {{ form_end(f) }}
+    </div>  
+  </div>
+{% endblock %}

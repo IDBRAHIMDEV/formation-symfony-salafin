@@ -1,0 +1,5 @@
+blog_homepage:
+    path:     /blog/{id}/{year}/{slug}.{extension}
+    defaults: { _controller: BlogBundle:Default:index, extension: "html" }
+    requirements: {id: \d+, year: '\d{4}', slug: '[a-z]*'}
+

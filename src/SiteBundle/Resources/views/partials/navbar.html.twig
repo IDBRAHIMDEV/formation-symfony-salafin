@@ -1,0 +1,47 @@
+  <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
+      <a class="navbar-brand" href="#">SALAFIN</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/site">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ path('post_index') }}">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/site/about">About</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/site/contact">Contact</a>
+              </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="{{ path('post_create') }}" class="nav-link">New Post</a>
+            </li>
+
+           
+             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+             <li class="nav-item">
+                <a href="{{ path('fos_user_registration_register') }}" class="nav-link">{{ app.user.username }}</a>
+            </li>
+             <li class="nav-item">
+                <a href="{{ path('fos_user_security_logout') }}" class="nav-link">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+            </li>
+            {% else %}
+              <li class="nav-item">
+                <a href="{{ path('fos_user_security_login') }}" class="nav-link">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            </li>
+             <li class="nav-item">
+                <a href="{{ path('fos_user_registration_register') }}" class="nav-link">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+            </li>
+            {% endif %}
+          </ul>
+         
+      </div>
+  </nav>

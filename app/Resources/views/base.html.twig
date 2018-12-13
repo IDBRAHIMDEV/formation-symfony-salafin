@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        
+        
+
+        {% block stylesheets %}
+           <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+       
+       {% include('SiteBundle:partials:navbar.html.twig') %}
+       
+       <div class="container">
+            {% block body %}{% endblock %}
+       </div>
+       
+
+        {% block footer %}
+            copyright Salafin 2018
+        {% endblock %}
+
+        
+
+
+
+        {% block javascripts %}
+           
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
